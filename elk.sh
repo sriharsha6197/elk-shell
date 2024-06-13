@@ -104,7 +104,7 @@ http {
 }' >> /etc/nginx/nginx.conf
 
 systemctl enable nginx
-systemctl start nginx
+systemctl restart nginx
 
 echo install elasticsearch
 dnf install elasticsearch -y
