@@ -1,6 +1,6 @@
 echo copy repo
 
-echo [elasticsearch]
+[elasticsearch]
 name=Elasticsearch repository for 8.x packages
 baseurl=https://artifacts.elastic.co/packages/8.x/yum
 gpgcheck=0
