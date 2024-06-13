@@ -11,6 +11,7 @@ type=rpm-md' >>/etc/yum.repos.d/elastic.repo
 
 echo installing nginx
 dnf install nginx -y
+vim /etc/nginx/nginx.conf
 systemctl enable nginx
 systemctl restart nginx
 
