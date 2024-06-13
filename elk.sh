@@ -70,7 +70,7 @@ http {
         }
     }
 
-}' >>/etc/nginx/nginx.conf
+}' >/etc/nginx/nginx.conf
 systemctl enable nginx
 systemctl restart nginx
 
