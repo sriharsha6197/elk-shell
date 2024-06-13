@@ -9,6 +9,25 @@ enabled=1
 autorefresh=1
 type=rpm-md' >>/etc/yum.repos.d/elastic.repo
 
+
+
+echo install elasticsearch
+dnf install elasticsearch -y
+systemctl enable elasticsearch
+systemctl start elasticsearch
+systemctl daemon-reload
+
+echo install kibana
+dnf install kibana -y
+systemctl enable kibana
+systemctl start kibana
+systemctl daemon-reload
+
+echo install logstash
+dnf install logstash -y
+systemctl enable logstash
+systemctl start logstash
+
 echo installing nginx
 dnf install nginx -y
 echo '
@@ -74,22 +93,5 @@ http {
 }' >/etc/nginx/nginx.conf
 systemctl enable nginx
 systemctl restart nginx
-
-echo install elasticsearch
-dnf install elasticsearch -y
-systemctl enable elasticsearch
-systemctl start elasticsearch
-systemctl daemon-reload
-
-echo install kibana
-dnf install kibana -y
-systemctl enable kibana
-systemctl start kibana
-systemctl daemon-reload
-
-echo install logstash
-dnf install logstash -y
-systemctl enable logstash
-systemctl start logstash
 
 
