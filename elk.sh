@@ -59,6 +59,7 @@ http {
         include /etc/nginx/default.d/*.conf;
 
         location / {
+            proxy_pass http://localhost:9200;
         }
 
         error_page 404 /404.html;
