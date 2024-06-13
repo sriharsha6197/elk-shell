@@ -10,7 +10,7 @@ autorefresh=1
 type=rpm-md' >>/etc/yum.repos.d/elastic.repo
 
 echo installing nginx
-
+dnf install nginx -y
 echo '
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/
@@ -102,7 +102,7 @@ http {
 #    }
 
 }' >> /etc/nginx/nginx.conf
-dnf install nginx -y
+
 systemctl enable nginx
 systemctl start nginx
 
