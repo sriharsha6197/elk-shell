@@ -29,7 +29,7 @@ events {
 }
 
 http {
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent';
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer"';
 
     access_log  /var/log/nginx/access.log  main;
 
@@ -78,22 +78,7 @@ systemctl enable kibana
 systemctl start kibana
 
 dnf install logstash -y
-echo 'input {
-  beats {
-    port => 5044
-  }
-}
 
-output {
-  elasticsearch {
-    hosts => ["https://localhost:9200"]
-    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
-    user => "elastic"
-    password => "JUyCAHlLN2q-gOPsfc6Q"
-    ssl_certificate_verification => false
-  }
-}
-' > /etc/logstash/conf.d/logstash.conf
 systemctl enable logstash
 systemctl start logstash
 
@@ -102,6 +87,5 @@ systemctl daemon-reload
 systemctl restart nginx
 
 
-cd /usr/share/elasticsearch/bin/
-bash elasticsearch-create-enrollment-token -s kibana
+
 
