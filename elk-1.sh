@@ -82,6 +82,11 @@ systemctl start kibana
 dnf install logstash -y
 systemctl enable logstash
 systemctl start logstash
+
 systemctl daemon-reload
 
 systemctl restart nginx
+
+
+cd /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+
