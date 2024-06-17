@@ -80,6 +80,22 @@ systemctl enable kibana
 systemctl start kibana
 
 dnf install logstash -y
+echo 'input {
+  beats {
+    port => 5044
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["https://localhost:9200"]
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    user => "elastic"
+    password => "JUyCAHlLN2q-gOPsfc6Q"
+    ssl_certificate_verification => false
+  }
+}
+' > /etc/logstash/conf.d/logstash.conf
 systemctl enable logstash
 systemctl start logstash
 
