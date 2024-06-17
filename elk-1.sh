@@ -88,5 +88,6 @@ systemctl daemon-reload
 systemctl restart nginx
 
 
-cd /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+cd /usr/share/elasticsearch/bin/
+bash elasticsearch-create-enrollment-token -s kibana
 
