@@ -91,7 +91,7 @@ input {
 
 output {
   elasticsearch {
-    hosts => ["http://localhost:9200"]
+    hosts => ["https://localhost:9200"]
     index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
     user => "elastic"
     password => "dOEGdQHlkfr2BQr3C4m3"
