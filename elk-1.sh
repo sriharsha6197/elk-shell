@@ -97,7 +97,7 @@ output {
     password => "dOEGdQHlkfr2BQr3C4m3"
     ssl_certificate_verification => false
   }
-}
+}' > /etc/logstash/conf.d/logstash.conf
 systemctl enable logstash
 systemctl start logstash
 
